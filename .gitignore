@@ -1,0 +1,27 @@
+# === Terraform files ===
+*.tfstate
+*.tfstate.*
+crash.log
+.terraform/
+.terraform.lock.hcl
+
+# === Terraform plan output ===
+*.tfplan
+
+# === Local override files ===
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# === Sensitive variable files (if you use them) ===
+*.auto.tfvars
+*.auto.tfvars.json
+
+# === Backup files ===
+*.bak
+*.backup
+
+# === OS-specific ===
+.DS_Store
+Thumbs.db
