@@ -34,7 +34,9 @@ jobs:
     - name: Terraform Plan (PR Validation)
       if: github.event_name == 'pull_request'
       run: terraform plan
+      working-directory: ./envs/prod
   
     - name: Terraform Apply (only on push to main)
       if: github.event_name == 'push' && github.ref == 'refs/heads/main'
       run: terraform apply -auto-approve
+      working-directory: ./envs/prod
