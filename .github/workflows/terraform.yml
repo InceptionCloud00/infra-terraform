@@ -29,13 +29,17 @@ jobs:
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v3
       with:
-        terraform_version: 1.7.5
+        terraform_version: ">=1.5.0"
+
+    - name: Terraform Init
+      run: terraform init -reconfigure
+      working-directory: ./envs/prod
 
     - name: Terraform Plan (PR Validation)
       if: github.event_name == 'pull_request'
       run: terraform plan
       working-directory: ./envs/prod
-  
+
     - name: Terraform Apply (only on push to main)
       if: github.event_name == 'push' && github.ref == 'refs/heads/main'
       run: terraform apply -auto-approve
