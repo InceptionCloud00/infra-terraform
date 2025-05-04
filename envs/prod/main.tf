@@ -20,5 +20,5 @@ module "ec2" {
   ami_id                 = "ami-0e35ddab05955cf57"
   instance_type          = "t2.micro"
   subnet_id              = each.value
-  vpc_security_group_ids = [module.vpc.security_group_id.webserver-sg.id]
+  vpc_security_group_ids = [module.vpc.security_group_id]
 }
